@@ -23,4 +23,10 @@ class MarkController extends Controller
         return redirect()->route('marks');
 
     }
+    public function destroy($id)
+    {
+        $mark = Mark::findOrFail($id);
+        $mark->delete();
+        return back();
+    }
 }

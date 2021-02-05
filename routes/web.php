@@ -25,3 +25,4 @@ Route::resource('students','StudentController',['except' => ['show']]);
 Route::resource('subjects','SubjectController',['except' => ['show','edit','update']]);
 Route::get('/marks','MarkController@index')->name('marks');
 Route::post('/marks','MarkController@store')->name('marks');
+Route::post('/marks/{id}','MarkController@destroy')->name('del');

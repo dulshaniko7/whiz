@@ -25,12 +25,33 @@
                                        placeholder="Student Name" value="{{ old('studentName', $student->studentName) }}">
                             </div>
                             @if($errors->has('studentName'))
-                            <span class="help-block text-danger"  role="alert">{{ $errors->first('studentName') }}</span>
+                            <span class="help-block text-danger" role="alert">{{ $errors->first('studentName') }}</span>
                             @endif
                         </div>
 
 
                     </div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Marks</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($marks as $mark)
+                        <tr>
+
+                            <td>{{$mark->subject->subjectName}}</td>
+                            <td>{{$mark->marks}}</td>
+
+
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                     <hr class="mt-1 mb-2">
 
                     <div class="col-md-6">

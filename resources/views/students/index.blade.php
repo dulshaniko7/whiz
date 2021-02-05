@@ -17,7 +17,8 @@
         <tr>
             <td>{{ $student->id}}</td>
             <td>{{ $student->studentName}}</td>
-            <td> <a class="btn btn-success " href="{{ route('students.edit',$student->id)}}">Update</a>
+            <td>
+                <a class="btn btn-success " href="{{ route('students.edit',$student->id)}}">Update</a>
                 <form action="{{ route('students.destroy', $student->id )}}" method="POST"
                       style="display: inline-block;">
                     <input type="hidden" name="_method" value="DELETE">

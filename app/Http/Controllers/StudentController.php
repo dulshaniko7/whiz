@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Mark;
 use App\Model\Student;
+use App\Model\Subject;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -25,6 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
+
         return view('students.create');
     }
 
@@ -52,10 +55,7 @@ class StudentController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -66,7 +66,9 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = Student::findOrFail($id);
-        return view('students.edit', compact('student'));
+        $marks = Mark::where('student_id', $id)->get();
+
+        return view('students.edit', compact('student', 'marks'));
     }
 
     /**
